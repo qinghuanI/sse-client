@@ -1,0 +1,17 @@
+{
+  "github": {
+    "release": true,
+    "releaseName": "${version}",
+    "tagName": "${version}"
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": "conventionalcommits",
+      "header": "# Changelog",
+      "infile": "CHANGELOG.md"
+    }
+  },
+  "npm": {
+    "publish": true
+  }
+}

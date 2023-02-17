@@ -21,13 +21,17 @@
   ],
   "scripts": {
     "build:types": "tsc -b ./tsconfig.types.json",
-    "build": "npm run build:types && rollup --config"
+    "build": "npm run build:types && rollup --config",
+    "release:major": "release-it major --config release-it.json --no-git --no-npm && git add . --update",
+    "release:minor": "release-it minor --config release-it.json --no-git --no-npm && git add . --update",
+    "release:patch": "release-it"
   },
   "author": "qinghuanI",
   "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.0.0",
     "prettier": "^2.8.4",
+    "release-it": "^15.6.0",
     "rollup": "^3.15.0",
     "tslib": "^2.5.0"
   },
