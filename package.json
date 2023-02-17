@@ -1,6 +1,6 @@
 {
   "name": "sse-client-sdk",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "private": false,
   "description": "a simple sse sdk",
   "source": "./index.ts",
