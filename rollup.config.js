@@ -1,25 +1,22 @@
 const typescript = require("@rollup/plugin-typescript");
 
+const pkg = require("./package.json");
+
 module.exports = {
   input: "./index.ts",
   output: [
     {
-      file: "./lib/index.js",
+      file: pkg.exports["."].require,
       format: "cjs",
       sourcemap: true,
     },
     {
-      file: "./lib/index.mjs",
-      format: "es",
+      file: pkg.exports["."].import,
+      format: "esm",
       sourcemap: true,
     },
     {
       file: "./lib/index.browser.js",
-      format: "iife",
-      sourcemap: true,
-    },
-    {
-      file: "./lib/index.browser.mjs",
       format: "iife",
       sourcemap: true,
     },

@@ -1,13 +1,19 @@
 {
   "name": "sse-client-sdk",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "private": false,
   "description": "a simple sse sdk",
+  "source": "./index.ts",
   "main": "./lib/index.js",
-  "module": "./lib/index.mjs",
+  "module": "./lib/index.esm.js",
   "browser": {
-    "./lib/index.js": "./lib/index.browser.js",
-    "./lib/index.mjs": "./lib/index.browser.mjs"
+    "./lib/index.js": "./lib/index.browser.js"
+  },
+  "exports": {
+    ".": {
+      "import": "./lib/index.esm.js",
+      "require": "./lib/index.js"
+    }
   },
   "keywords": [
     "Server-sent events"

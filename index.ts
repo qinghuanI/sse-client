@@ -19,7 +19,7 @@ export default class SSEClient implements Client {
   public readonly url: string;
   public options: Options;
   public retry: number;
-  public timer: number;
+  public timer: null | number;
   public es: EventSource | null;
 
   constructor(url: string, options: Options = defaultOptions) {
@@ -35,7 +35,7 @@ export default class SSEClient implements Client {
   }
 
   private _onMessage(handler: Handler) {
-    return (event) => {
+    return (event: { data: string }) => {
       this.retry = this.options.retry;
       let payload;
 
@@ -71,9 +71,9 @@ export default class SSEClient implements Client {
   }
 
   private _removeAllEvent(type: string, handler: Handler) {
-    this.es.removeEventListener("open", this._onOpen);
-    this.es.removeEventListener(type, this._onMessage(handler));
-    this.es.removeEventListener("error", this._onError(type, handler));
+    this.es?.removeEventListener("open", this._onOpen);
+    this.es?.removeEventListener(type, this._onMessage(handler));
+    this.es?.removeEventListener("error", this._onError(type, handler));
   }
 
   subscribe(type: string, handler: Handler) {

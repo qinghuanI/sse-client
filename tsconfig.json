@@ -1,8 +1,15 @@
 {
   "compilerOptions": {
-    "module": "nodenext",
+    "module": "ESNext",
     "target": "es5",
     "sourceMap": true,
+    "lib": [
+      "ESNext",
+      "dom"
+    ],
+    "strict": true,
+    "esModuleInterop": false,
+    "resolveJsonModule": true
   },
   "exclude": [
     "node_modules"
