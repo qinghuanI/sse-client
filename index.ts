@@ -64,7 +64,6 @@ export default class SSEClient implements Client {
         const interval = this.options.interval;
 
         this.timer = setTimeout(() => {
-          console.log(333, this);
           this?.subscribe(type, handler);
         }, interval);
       } else {
