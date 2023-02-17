@@ -22,9 +22,7 @@
   "scripts": {
     "build:types": "tsc -b ./tsconfig.types.json",
     "build": "npm run build:types && rollup --config",
-    "release:major": "release-it major --config release-it.json --no-git --no-npm && git add . --update",
-    "release:minor": "release-it minor --config release-it.json --no-git --no-npm && git add . --update",
-    "release:patch": "release-it"
+    "release": "release-it"
   },
   "author": "qinghuanI",
   "license": "MIT",
