@@ -71,9 +71,11 @@ export default class SSEClient implements Client {
   }
 
   private _removeAllEvent(type: string, handler: Handler) {
-    this.es?.removeEventListener("open", this._onOpen);
-    this.es?.removeEventListener(type, this._onMessage(handler));
-    this.es?.removeEventListener("error", this._onError(type, handler));
+    if (this.es) {
+      this.es.removeEventListener("open", this._onOpen);
+      this.es.removeEventListener(type, this._onMessage(handler));
+      this.es.removeEventListener("error", this._onError(type, handler));
+    }
   }
 
   subscribe(type: string, handler: Handler) {

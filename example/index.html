@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>test sse</title>
+</head>
+<body>
+</body>
+</html>
+<script type="module">
+  import SSEClient from "../lib/index.esm.js";
+  const url = 'http://localhost:8844/stream'
+  const sse = new SSEClient(url, {})
+  
+  sse.subscribe('message', data => {
+    console.log(111, data);
+  })
+</script>
