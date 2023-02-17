@@ -1,7 +1,9 @@
 这是一个简单的 sse sdk。做了非常简单的封装，方便开发人员使用
 
+## Features
 
-## 简单使用
+
+## Quick Start
 
 ```js
 import SSESdk from 'sse-client-sdk'
@@ -45,3 +47,9 @@ function Example() {
 ```
 
 ## API
+
+## Contributing
+Please see our [CONTRIBUTING.md](./CONTRIBUTING.md)
+
+## License
+[MIT](./LICENSE)
