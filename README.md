@@ -1,10 +1,10 @@
-this is a simple sse sdk
+这是一个简单的 sse sdk。做了非常简单的封装，方便开发人员使用
 
 
-## usages
+## 简单使用
 
 ```js
-import SSESdk from '@qinghuani/sse-client'
+import SSESdk from 'sse-client-sdk'
 
 // SSESdk 实例化
 const SSE = new SSESdk(url, options);
@@ -22,4 +22,26 @@ SSE.unsuscribe();
   
 ```jsx
 
+import SSEClient from 'sse-client-sdk'
+
+const sse = new SSEClient(url, options)
+
+function Example() {
+  const [count, setCount] = useState(0)
+  
+  useEffect(() => {
+    sse.subscribe('message', data => {
+      setCount(data)
+    })
+    
+    return () => {
+      sse.unsubscribe()
+    }
+  }, [])
+  
+  return <div>{count}</div>
+}
+
 ```
+
+## API

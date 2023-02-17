@@ -6,6 +6,7 @@
   "source": "./index.ts",
   "main": "./lib/index.js",
   "module": "./lib/index.esm.js",
+  "types": "./lib/types/index.d.ts",
   "browser": {
     "./lib/index.js": "./lib/index.browser.js"
   },
@@ -19,7 +20,8 @@
     "Server-sent events"
   ],
   "scripts": {
-    "build": "rollup --config"
+    "build:types": "tsc -b ./tsconfig.types.json",
+    "build": "npm run build:types && rollup --config"
   },
   "author": "qinghuanI",
   "license": "MIT",

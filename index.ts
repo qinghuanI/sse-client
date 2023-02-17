@@ -4,8 +4,8 @@ const defaultOptions = {
 };
 
 export type Options = {
-  retry: number;
-  interval: number;
+  retry?: number;
+  interval?: number;
 };
 
 export type Handler = (val: unknown) => void;
@@ -26,7 +26,7 @@ export default class SSEClient implements Client {
     this.url = url;
     this.es = null;
     this.options = options;
-    this.retry = options.retry;
+    this.retry = options.retry || defaultOptions.retry;
     this.timer = null;
   }
 
@@ -36,7 +36,7 @@ export default class SSEClient implements Client {
 
   private _onMessage(handler: Handler) {
     return (event: { data: string }) => {
-      this.retry = this.options.retry;
+      this.retry = this.options.retry || defaultOptions.retry;
       let payload;
 
       try {
