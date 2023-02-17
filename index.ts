@@ -61,9 +61,12 @@ export default class SSEClient implements Client {
       }
 
       if (this.retry > 0) {
+        const interval = this.options.interval;
+
         this.timer = setTimeout(() => {
-          this.subscribe(type, handler);
-        }, this.options.interval);
+          console.log(333, this);
+          this?.subscribe(type, handler);
+        }, interval);
       } else {
         this.retry--;
       }
