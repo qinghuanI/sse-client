@@ -1,0 +1,28 @@
+{
+  "name": "sse-client",
+  "version": "0.0.1",
+  "description": "a simple sse sdk",
+  "main": "./lib/index.js",
+  "module": "./lib/index.mjs",
+  "browser": {
+    "./lib/index.js": "./lib/index.browser.js",
+    "./lib/index.mjs": "./lib/index.browser.mjs"
+  },
+  "keywords": [
+    "Server-sent events"
+  ],
+  "scripts": {
+    "build": "rollup --config"
+  },
+  "author": "qinghuanI",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.0.0",
+    "prettier": "^2.8.4",
+    "rollup": "^3.15.0",
+    "tslib": "^2.5.0"
+  },
+  "dependencies": {
+    "typescript": "^4.9.5"
+  }
+}
