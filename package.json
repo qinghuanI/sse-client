@@ -1,6 +1,7 @@
 {
-  "name": "sse-client",
-  "version": "0.0.1",
+  "name": "@qinghuani/sse-client",
+  "version": "0.0.2",
+  "private": false,
   "description": "a simple sse sdk",
   "main": "./lib/index.js",
   "module": "./lib/index.mjs",
