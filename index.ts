@@ -30,11 +30,11 @@ export default class SSEClient implements Client {
     this.timer = null;
   }
 
-  private _onOpen() {
+  private onOpen() {
     console.log("server sent event connect created");
   }
 
-  private _onMessage(handler: Handler) {
+  private onMessage(handler: Handler) {
     return (event: { data: string }) => {
       this.retry = this.options.retry || defaultOptions.retry;
       let payload;
@@ -52,7 +52,7 @@ export default class SSEClient implements Client {
     };
   }
 
-  private _onError(type: string, handler: Handler) {
+  private onError(type: string, handler: Handler) {
     return () => {
       console.error("EventSource connection failed for subscribe.Retry");
       if (this.es) {
@@ -74,18 +74,18 @@ export default class SSEClient implements Client {
 
   private _removeAllEvent(type: string, handler: Handler) {
     if (this.es) {
-      this.es.removeEventListener("open", this._onOpen);
-      this.es.removeEventListener(type, this._onMessage(handler));
-      this.es.removeEventListener("error", this._onError(type, handler));
+      this.es.removeEventListener("open", this.onOpen);
+      this.es.removeEventListener(type, this.onMessage(handler));
+      this.es.removeEventListener("error", this.onError(type, handler));
     }
   }
 
   subscribe(type: string, handler: Handler) {
     this.es = new EventSource(this.url);
 
-    this.es.addEventListener("open", this._onOpen);
-    this.es.addEventListener(type, this._onMessage(handler));
-    this.es.addEventListener("error", this._onError(type, handler));
+    this.es.addEventListener("open", this.onOpen);
+    this.es.addEventListener(type, this.onMessage(handler));
+    this.es.addEventListener("error", this.onError(type, handler));
   }
 
   unsubscribe() {

@@ -1,8 +1,5 @@
 这是一个简单的 sse sdk。做了非常简单的封装，方便开发人员使用
 
-## Features
-
-
 ## Quick Start
 
 ```js
@@ -47,6 +44,24 @@ function Example() {
 ```
 
 ## API
+- retry
+
+重试次数
+
+- interval
+
+重试的间隔时间
+
+## Example
+
+```shell
+git clone https://github.com/qinghuanI/sse-client.git
+
+cd sse-clinet/example
+
+node server.js
+open index.html in chrome browser
+```
 
 ## Contributing
 Please see our [CONTRIBUTING.md](./CONTRIBUTING.md)
